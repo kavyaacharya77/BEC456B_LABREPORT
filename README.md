@@ -54,7 +54,7 @@ This confirms that the MOSFET is in the saturation region, which is necessary fo
 
 ### <ins>5.3 AC analysis</ins>       
 ![ac_analysis](https://github.com/user-attachments/assets/abca7e64-b1b7-433d-bfde-f3e8f029c4ba)
-- Voltage Gain: The circuit shows a gain of 30.85dB, which corresponds to a linear gain of 34.89. This indicates significant amplification of the input signal.
+- Voltage Gain: The circuit shows a gain of -30.85dB, which corresponds to a linear gain of -34.89. This indicates significant amplification of the input signal.
 - Output peak voltage: The measured output voltage is 1.74445V, which aligns with the expected amplification based on the gain.
 - Phase shift: At 1k Hz, the output waveform lags the input by approximately 120 degree, as calculated from the transient response graph. This suggests a frequency-dependent phase delay.
 - Frequency: 210.044G Hz
@@ -63,7 +63,7 @@ This confirms that the MOSFET is in the saturation region, which is necessary fo
 The LTSpice simulation of the CMOS circuit provides insights into its operational behaviour in different domains:    
 - DC operating point analysis cofirmed that the MOSFET operates in saturation region. The observed drain voltage (1.74445V) and the drain current(55uA) align with theoretical values.
 - Transient analysis verified that the circuit amplifies the input 1k Hz sine wave with minimal distortion. The output peak voltage of 1.74445V suggests successful signal amplification. A phase shift in output indicates that the circuit introduces delay, which is typical in amplifiers.
-- AC analysis showed a voltage gain of 30.85dB indicating strong signal amplification. The phase shift of ~120 degree at 1k Hz suggests that the frequency-dependent behaviour must be considered for applications requiring precise phase allignment.
+- AC analysis showed a voltage gain of -30.85dB indicating strong signal amplification. The phase shift of ~120 degree at 1k Hz suggests that the frequency-dependent behaviour must be considered for applications requiring precise phase allignment.
 
 ### 7. CONCLUSION
 The CMOS circuit simulated in LTSpice functions as an amplifier, operating in the saturation region with stable gain, pjase shift amd transient response. The observed voltage gain and output characteristics validate its use in low-power amplification applications. Further analysis, such as determining cutoff frequency and bandwidth, will help optimize the circuit for specific design requirements.
