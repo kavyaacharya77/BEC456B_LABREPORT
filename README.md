@@ -66,7 +66,7 @@ The LTSpice simulation of the CMOS circuit provides insights into its operationa
 - AC analysis showed a voltage gain of -30.85dB indicating strong signal amplification. The phase shift of ~120 degree at 1k Hz suggests that the frequency-dependent behaviour must be considered for applications requiring precise phase allignment.
 
 # LTSpice simulation of a CMOS circuit #2
-### CIRCUIT DIAGRAM 
+### 1.CIRCUIT DIAGRAM 
 
 ### 7. CONCLUSION
 The CMOS circuit simulated in LTSpice functions as an amplifier, operating in the saturation region with stable gain, pjase shift amd transient response. The observed voltage gain and output characteristics validate its use in low-power amplification applications. Further analysis, such as determining cutoff frequency and bandwidth, will help optimize the circuit for specific design requirements.
