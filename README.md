@@ -57,7 +57,8 @@ This confirms that the MOSFET is in the saturation region, which is necessary fo
 - Voltage Gain: The circuit shows a gain of 30.85dB, which corresponds to a linear gain of 34.89. This indicates significant amplification of the input signal.
 - Output peak voltage: The measured output voltage is 1.74445V, which aligns with the expected amplification based on the gain.
 - Phase shift: At 1k Hz, the output waveform lags the input by approximately 120 degree, as calculated from the transient response graph. This suggests a frequency-dependent phase delay.
-
+- Frequency: 210.044G Hz
+  
 ### 6. INFERENCE 
 The LTSpice simulation of the CMOS circuit provides insights into its operational behaviour in different domains:    
 - DC operating point analysis cofirmed that the MOSFET operates in saturation region. The observed drain voltage (1.74445V) and the drain current(55uA) align with theoretical values.
