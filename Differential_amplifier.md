@@ -109,7 +109,7 @@ Transient analysis evaluates the circuit's time-domain response to varying input
 
 Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $398.69m/99.348m$ = -4.013V/V.
 
-In dB scale 20log(4.013) = 12.07dB.
+In dB scale -20log(4.013) = -12.07dB.
 
 ### <ins> 5.31 AC Analysis
 AC analysis exmaines the frequency response of the amplifier, determining its gain, bandwidth, and phase characteristics. By sweeping the input signal frequency from low (0.1Hz) to high (1THz) in LTspice, we can observe how the amplifier responds across different frequencies. This helps determine the gain bandwidth product(GBW), -3dB cutoff frequency, and phase shift behaviour. The results include how effectively the amplifier reatins signal integrity while fitering out unwanted noise. A well designed MOS differential amplifier shpuld maintain a constant gain within its operating frequency range before gradually attenuating signals at higher frequencies.   
@@ -126,8 +126,8 @@ From the frequency response graph, we observe the gain in dB scale is 12.128dB a
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | 4.77 | 4.013 |
-| Av(dB) | 12.07 | 12.128 |     
+| Av(V/V) | -4.77 | -4.013 |
+| Av(dB) | -12.07 | -12.128 |     
 
 ### 6. CIRCUIT MODIFICATIONS AND ENHANCEMENTS
 ### Circuit 2: Using an Ideal Current Source Instead of Resistor
@@ -157,7 +157,7 @@ From the DC analysis, It is proved that the MOSFETs operate in saturation region
 
 - Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $398.53m/99.169m$ = -4.0186V/V.
 
-In dB scale 20log(4.0186) = 12.0815dB.
+In dB scale -20log(4.0186) = -12.0815dB.
 
 - Better common-mode rejection.
 
@@ -170,8 +170,8 @@ From the frequency response graph, we observe the gain in dB scale is 12.131dB a
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | 4.77 | 4.0186 |
-| Av(dB) | 12.0815 | 12.131 |    
+| Av(V/V) | -4.77 | -4.0186 |
+| Av(dB) | -12.0815 | -12.131 |    
 
 ### Circuit 3: Active Current Source (NMOS) Instead of Resistor  
 
@@ -214,7 +214,7 @@ We need to check whether the MOSFETs M1, M2 and M3 are in saturation mode.
 
 - Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $657.64m/99.356m$ = -6.619V/V.
 
-In dB scale 20log(6.619) = 16.4158dB.
+In dB scale -20log(6.619) = -16.4158dB.
 
 - Better stability and noise immunity.
 
@@ -227,8 +227,8 @@ From the frequency response graph, we observe the gain in dB scale is 16.69dB an
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | 4.77 | 6.619 |
-| Av(dB) | 16.4158 | 16.69 |   
+| Av(V/V) | -4.77 | -6.619 |
+| Av(dB) | -16.4158 | -16.69 |   
 
 ### Circuit 4: Active Current Source (PMOS) Instead of Drain Resistors 
 
@@ -274,7 +274,7 @@ We need to check whether the MOSFETs M1, M2 M3, M4 and M5 are in saturation mode
 
 - Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $179.24m/99.534m$ = -1.8V/V.
 
-In dB scale 20log(1.8) = 5.105dB.
+In dB scale -20log(1.8) = -5.105dB.
 
 ### <ins> 5.34 AC Analysis
 (Follow the same procedure as mentioned in circuit 1)
@@ -285,10 +285,19 @@ From the frequency response graph, we observe the gain in dB scale is 5.141dB an
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | 4.77 | 1.8 |
-| Av(dB) | 5.105 | 5.141 |   
+| Av(V/V) | -4.77 | -1.8 |
+| Av(dB) | -5.105 | -5.141 |   
 
+### 7. COMPARISON OF DIFFERENT CIRCUITS
 
+| Feature | Circuit 1: Resistor Tail | Circuit 2: Ideal current source | Circuit 3: Active NMOS source |      
+|--------|--------|----|-----|     
+| Gain | -12.128dB | -12.131dB | -16.4158dB |      
+| CMRR | Low | Moderate | High |      
+| Power Efficiency | Low | Moderate | High |     
+| Stability | Poor(supply dependent) | Better | Best |     
+| Practical Implementation | Simple | Theoretical | Most practical |      
+| Noise Immunity | Low | Moderate | High |
 
 
 
