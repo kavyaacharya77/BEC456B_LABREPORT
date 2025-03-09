@@ -157,6 +157,7 @@ From the frequency response graph, we observe the gain in dB scale is 12.128dB a
 ![ckt3_2dcop](https://github.com/user-attachments/assets/4eb9d5e5-dce4-46dc-9df9-096cf3c42057) 
 
 ![ckt3_spiceerror](https://github.com/user-attachments/assets/2f824825-ae10-49a4-9002-a06b89764d1d) 
+
 From the DC analysis, It is proved that the MOSFETs operate in saturation region.
 
 ### <ins> 5.22 Transient Analysis 
