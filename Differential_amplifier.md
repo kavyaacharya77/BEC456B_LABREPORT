@@ -5,7 +5,8 @@ To design and analyse the differential amplifier for the following specification
 - P <= 2.2mW
 - Vicm = 1.2V
 - Vocm = 1.25V
-- Vp = 0.4V.
+- Vp = 0.4V
+
 Perform DC analysis, transient analysis, frequency response and extract the parameters.
 ### 2. COMPONENTS USED      
 The following components are used in the MOS differential amplifier circuit along with their key specifications:  
@@ -52,12 +53,22 @@ This fundamental working principle makes MOS differential amplifiers an essentia
 1. Determine the source current (Iss):
    
    Iss = $P/Vdd$ = $2.2mW/2.2$ = 1mA
-2. Calculate the drain resistance (Rd1,Rd2):
+   
+3. Calculate the drain resistance (Rd1,Rd2):
 
    Id = $Iss/2$ = $1mA/2$ = 0.5mA
+   
    Rd1 = Rd2 = $Vdd - Vocm/Id$ = $2.2 - 1.25/0.5m$ = 1.9kohm
-3. Calculate source resistance (Rss):
+   
+5. Calculate source resistance (Rss):
+   
    Rss = $Vp/Iss$ = $o.4/1m$ = 400ohm
+
+6. Calculate gain of the circuit:
+
+   gm = 2.51m
+
+   Av = gm * Rd = 2.51m * 1.9k = 4.77V/V
 
 ### 5. SIMULATION AND ANALYSIS    
 ### <ins> 5.11 DC Analysis 
@@ -77,9 +88,10 @@ DC analysis helps to determine the operating point of the circuit, which defines
 ![ckt3_spiceerror](https://github.com/user-attachments/assets/2f824825-ae10-49a4-9002-a06b89764d1d) 
 
 From the above image we check whether the MOSFET operates in saturation region.     
-Vgs = 0.8V, Vds = 0.85V, Vth = 0.495V      
-0.8V > 0.495V therfore, Vgs > Vth.
-And 0.85V > (0.8-0.495)V = 0.85V > 0.305V therefore Vds>Vov.This implies that both the MOSFETs operate in saturation region.    
+- Vgs = 0.8V, Vds = 0.85V, Vth = 0.495V      
+- 0.8V > 0.495V therfore, Vgs > Vth.
+- And 0.85V > (0.8-0.495)V = 0.85V > 0.305V therefore Vds>Vov.
+- This implies that both the MOSFETs operate in saturation region.    
 
 Vicm(min) = Vth + Vp = 0.366 + 0.4 = 0.766V.     
 
@@ -107,9 +119,9 @@ Transient analysis evaluates the circuit's time-domain response to varying input
 
 ![ckt3_1vout12](https://github.com/user-attachments/assets/823f475a-859d-48e4-8a6c-78fd1b5741b2)
 
-Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $398.69m/99.348m$ = -4.013V/V.
+- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $398.69m/99.348m$ = 4.013V/V.
 
-In dB scale -20log(4.013) = -12.07dB.
+- In dB scale Av = 20log(4.013) = 12.07dB.
 
 ### <ins> 5.31 AC Analysis
 AC analysis exmaines the frequency response of the amplifier, determining its gain, bandwidth, and phase characteristics. By sweeping the input signal frequency from low (0.1Hz) to high (1THz) in LTspice, we can observe how the amplifier responds across different frequencies. This helps determine the gain bandwidth product(GBW), -3dB cutoff frequency, and phase shift behaviour. The results include how effectively the amplifier reatins signal integrity while fitering out unwanted noise. A well designed MOS differential amplifier shpuld maintain a constant gain within its operating frequency range before gradually attenuating signals at higher frequencies.   
@@ -126,8 +138,8 @@ From the frequency response graph, we observe the gain in dB scale is 12.128dB a
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | -4.77 | -4.013 |
-| Av(dB) | -12.07 | -12.128 |     
+| Av(V/V) | 4.77 | 4.013 |
+| Av(dB) | 12.07 | 12.128 |     
 
 ### 6. CIRCUIT MODIFICATIONS AND ENHANCEMENTS
 ### Circuit 2: Using an Ideal Current Source Instead of Resistor
@@ -155,9 +167,9 @@ From the DC analysis, It is proved that the MOSFETs operate in saturation region
 ![ckt3_2vout12](https://github.com/user-attachments/assets/b682d986-11bc-4cd2-bdaa-6f5a32d0f12c)
 
 
-- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $398.53m/99.169m$ = -4.0186V/V.
+- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $398.53m/99.169m$ = 4.0186V/V.
 
-In dB scale -20log(4.0186) = -12.0815dB.
+- In dB scale Av = 20log(4.0186) = 12.0815dB.
 
 - Better common-mode rejection.
 
@@ -170,8 +182,8 @@ From the frequency response graph, we observe the gain in dB scale is 12.131dB a
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | -4.77 | -4.0186 |
-| Av(dB) | -12.0815 | -12.131 |    
+| Av(V/V) | 4.77 | 4.0186 |
+| Av(dB) | 12.0815 | 12.131 |    
 
 ### Circuit 3: Active Current Source (NMOS) Instead of Resistor  
 
@@ -193,13 +205,15 @@ We need to check whether the MOSFETs M1, M2 and M3 are in saturation mode.
 #### For NMOS M1 and M2 
 - Vgs = 0.68V, Vds = 0.73V, Vth = 0.497V      
 - 0.68V > 0.497V therfore, Vgs > Vth.
-- And 0.73V > (0.68-0.497)V = 0.73V > 0.183V therefore Vds>Vov.This implies that both the MOSFETs operate in saturation region. 
+- And 0.73V > (0.68-0.497)V = 0.73V > 0.183V therefore Vds>Vov.
+- This implies that both the MOSFETs operate in saturation region. 
 
 #### For NMOS M3
 - Vb = Vp + Vth = 0.4 + 0.366 = 0.766V
 - Vgs = 0.766V, Vds = 0.52V, Vth = 0.476V      
 - 0.766V > 0.476V therfore, Vgs > Vth.
-- And 0.52V > (0.766-0.476)V = 0.85V > 0.29V therefore Vds>Vov.This implies that the MOSFET M3 operates in saturation region.
+- And 0.52V > (0.766-0.476)V = 0.85V > 0.29V therefore Vds>Vov.
+- This implies that the MOSFET M3 operates in saturation region.
 
 ### <ins> 5.23 Transient Analysis 
 (Follow the same procedure as mentioned in circuit 1)
@@ -212,9 +226,9 @@ We need to check whether the MOSFETs M1, M2 and M3 are in saturation mode.
 
 ![ckt3_3vot12](https://github.com/user-attachments/assets/884fa520-c57d-4cd6-851b-c8eaa87abfd8)
 
-- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $657.64m/99.356m$ = -6.619V/V.
+- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $657.64m/99.356m$ = 6.619V/V.
 
-In dB scale -20log(6.619) = -16.4158dB.
+- In dB scale Av = 20log(6.619) = 16.4158dB.
 
 - Better stability and noise immunity.
 
@@ -227,8 +241,8 @@ From the frequency response graph, we observe the gain in dB scale is 16.69dB an
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | -4.77 | -6.619 |
-| Av(dB) | -16.4158 | -16.69 |   
+| Av(V/V) | 4.77 | 6.619 |
+| Av(dB) | 16.4158 | 16.69 |   
 
 ### Circuit 4: Active Current Source (PMOS) Instead of Drain Resistors 
 
@@ -246,17 +260,20 @@ We need to check whether the MOSFETs M1, M2 M3, M4 and M5 are in saturation mode
 #### For NMOS M1 and M2 
 - Vgs = 0.721V, Vds = 0.771V, Vth = 0.496V      
 - 0.721V > 0.496V therfore, Vgs > Vth.
-- And 0.771V > (0.721-0.496)V = 0.771V > 0.225V therefore Vds>Vov.This implies that both the MOSFETs operate in saturation region. 
+- And 0.771V > (0.721-0.496)V = 0.771V > 0.225V therefore Vds>Vov.
+- This implies that both the MOSFETs operate in saturation region. 
 
 #### For NMOS M3
 - Vgs = 0.766V, Vds = 0.479V, Vth = 0.477V      
 - 0.766V > 0.477V therfore, Vgs > Vth.
-- And 0.479V > (0.766-0.477)V = 0.479V > 0.29V therefore Vds>Vov.This implies that the MOSFET M3 operates in saturation region.
+- And 0.479V > (0.766-0.477)V = 0.479V > 0.29V therefore Vds>Vov.
+- This implies that the MOSFET M3 operates in saturation region.
   
 #### For PMOS M4 and M5
 - Vgs = 0V, Vds = 0.95V, Vth = -0.506V      
 - 0V > -0.506V therfore, Vgs > Vth.
-- And 0.95V > (0-0.506)V = 0.95V > 0.506V therefore Vds>Vov.This implies that the MOSFETs M4 and M5 operate in saturation region.
+- And 0.95V > (0-0.506)V = 0.95V > 0.506V therefore Vds>Vov.
+- This implies that the MOSFETs M4 and M5 operate in saturation region.
 
 ### <ins> 5.24 Transient Analysis 
 (Follow the same procedure as mentioned in circuit 1)
@@ -272,9 +289,9 @@ We need to check whether the MOSFETs M1, M2 M3, M4 and M5 are in saturation mode
 ![ckt3_4vout12](https://github.com/user-attachments/assets/af460f98-e515-4827-a264-d84f8a61bbcd)
 
 
-- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $179.24m/99.534m$ = -1.8V/V.
+- Gain Av = $Vout1 - Vout2/Vin1 - Vin2$ = $179.24m/99.534m$ = 1.8V/V.
 
-In dB scale -20log(1.8) = -5.105dB.
+- In dB scale Av = 20log(1.8) = 5.105dB.
 
 ### <ins> 5.34 AC Analysis
 (Follow the same procedure as mentioned in circuit 1)
@@ -285,19 +302,60 @@ From the frequency response graph, we observe the gain in dB scale is 5.141dB an
 
 | Gain | Theoretical value | Practical value |
 |------|--------|------|
-| Av(V/V) | -4.77 | -1.8 |
-| Av(dB) | -5.105 | -5.141 |   
+| Av(V/V) | 4.77 | 1.8 |
+| Av(dB) | 5.105 | 5.141 |   
 
 ### 7. COMPARISON OF DIFFERENT CIRCUITS
 
 | Feature | Circuit 1: Resistor Tail | Circuit 2: Ideal current source | Circuit 3: Active NMOS source |      
 |--------|--------|----|-----|     
-| Gain | -12.128dB | -12.131dB | -16.4158dB |      
+| Gain | 12.128dB | 12.131dB | 16.4158dB |      
 | CMRR | Low | Moderate | High |      
 | Power Efficiency | Low | Moderate | High |     
 | Stability | Poor(supply dependent) | Better | Best |     
 | Practical Implementation | Simple | Theoretical | Most practical |      
 | Noise Immunity | Low | Moderate | High |
+
+### 8. INFERENCE AND ANALYSIS OF MOS DIFFERENTIAL AMPLIFIER     
+### 1. Importance of Replacing Tail Resistor(Rss) with a Current Source
+- Larger Rss reduces gain, the transistors find it difficult to amplify small signals.
+- A constant current source ensures a stable tail current which improves gain and circuit performance.
+-  Even though there is current variations, the current source provides a stable output.
+-  A current source improves **common-mode rejection ratio(CMRR)** by stabilizing the tail current.
+
+### 2. Input Common-Mode Voltage(Vicm)
+- Vicm must be within a specific range to keep transistors in ON state.
+- As we increase the amplitude, we can observe early distortion as the MOSFET enters saturation or cutoff faster.
+- **Maximum input swing** is the maximum voltage before distortion begins.
+
+### 3. Effects of Signal Amplitude and Distortion
+- At **50mV** input, the circuit remains linear.
+- At **100mV** input, the circuit becomes non-linear and limits amplification.
+- Higher amplitude causes early saturation or cutoff, reducing the operational range.
+
+### 4. Threshold Voltage(Vth) and W/L Ratio Adjustments
+- It is important to set the W/L ratio properly in order to get correct Vout and gain.
+- Vout is not directly dependent on circuit parameters, so it is difficult to make variations.
+
+### 5. AC Analysis and Phase Shift Effect 
+- In order to achieve a significantly higher gain we need to set the AC phase of one of the input voltage to 180deg.
+- Because differential signals with opposite phase improve gain and stability.
+
+### 9. CIRCUIT-SPECIFIC OBSERVATIONS  
+### Circuit 1: Resistor-Based Source
+- It is a simple circuit, but it cannot handle variations in supply voltage.
+- Tail current is not stable which leads to fluctuations in gain.
+- Lower gain compared to other current source circuits
+
+### Circuit 2: Ideal current Source
+- Best used in theoretical analysis but not practical.
+- It provides a constant tail current but cannot be used in real circuits.
+
+### Circuit 3: Active Current Source(NMOS)
+- Instead of resistor if we use a active current source NMOS, we can achieve a stable tail current.
+- Improves common-mode rejection ratio(CMRR).
+- Provides Higher gain and stability compared to circuit 1.
+
 
 
 
