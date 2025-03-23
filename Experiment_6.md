@@ -102,7 +102,7 @@ In order to get the correct current value , W/L for M1 and M2 is 10um/180nm and 
 
 From the above image we check whether the MOSFET operates in saturation region.
 
-### 5.21 Transient Analysis
+### 5.21 <ins> Transient Analysis
 Transient analysis examines how the circuit responds over time by applying a time-varying input. It helps observe the dynamic behaviour of the current mirror, including startup transients and settling time.
 
 ### <ins> Procedure </ins>   
@@ -119,7 +119,7 @@ Transient analysis examines how the circuit responds over time by applying a tim
 - The expected gain of the circuit is 10V/V.
 - The obtained gain from transient analysis is Av = 14.78V/V
 
-### 5.31 AC Analysis 
+### 5.31 <ins> AC Analysis 
 AC analysis determines the frequency response of the current mirror, helping analyse its small-signal behaviour and gain characteristics over a range of frequencies.
 
 ### <ins> Procedure </ins>   
@@ -136,11 +136,46 @@ AC analysis determines the frequency response of the current mirror, helping ana
 | Gain | Theoretical Value | Practical Value |
 |---|----|---|
 | Av (V/V) | 10 | 14.78 |
-| Av (dB) | 20 | 29.02 |     
+| Av (dB) | 20 | 29.02 |    
 
-### Case 1: For mirror ratio 1:2
+### For length (L) = 500nm
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 500nm. Width of M3 be 67.646um.
 
-### DC Analysis 
+![Screenshot 2025-03-23 144736](https://github.com/user-attachments/assets/8ad46a11-e25c-4e5e-b106-023e13dcb838)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 150738](https://github.com/user-attachments/assets/f9ba8551-07d6-4ead-9b18-99e9518910cd)
+
+- Gain Av (in dB) = 37.962dB.
+- -3dB bandwith frequency = 116.66M Hz.
+
+### For length (L) = 1um
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 1um. Width of M3 be 96.472um.
+
+![Screenshot 2025-03-23 145328](https://github.com/user-attachments/assets/72b1b842-2661-474f-965d-273d77a27ff2)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 150119](https://github.com/user-attachments/assets/26a8fbe2-43ad-498f-82d3-f78c36b670c7)
+
+- Gain Av (in dB) = 37.188dB.
+- -3dB bandwith frequency = 78.40M Hz.
+
+### Comparison Table
+
+| Length (L) | Width (W1) | Width (W2) | Width (W3) | Iref | Iout | Vout |
+|-----|----|----|----|----|----|-----|
+| 180nm | 10um | 10um | 32.4256um | 0.278mA | 0.278mA | 1.00553V |
+| 500nm | 10um | 10um | 67.646um | 0.278mA | 0.2776mA | 0.707924V |
+| 1um | 10um | 10um | 96.472um | 0.278mA | 0.278mA | 0.337052V |
+
+### Case 2: For mirror ratio 1:2
+![Screenshot 2025-03-23 143634](https://github.com/user-attachments/assets/0842279b-3ac5-4bad-b843-e8ef57a5d728)
+
+### <ins> DC Analysis 
 While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um and M2 as 20um. And Width W of MOSFET M3 is set as 42.833um. Here the current (Id) in the MOSFET M2 must be double of Iref. 
 
 1. Determine the drain current (Id)
@@ -155,13 +190,53 @@ While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um a
 
 ![Screenshot 2025-03-23 132946](https://github.com/user-attachments/assets/11d7dcfb-9b36-454c-a8d5-3c987692489c)
 
-### Transient Analysis
+### <ins> Transient Analysis
 
 ### INPUT AND OUTPUT WAVEFORMS
 
-![Screenshot 2025-03-23 125308](https://github.com/user-attachments/assets/2a79a44c-bee0-421c-ad96-90b0d4a859d3)
+![Screenshot 2025-03-23 135327](https://github.com/user-attachments/assets/f7a74cf3-e410-4769-a381-8f42396b3b28)
 
-![Screenshot 2025-03-23 125237](https://github.com/user-attachments/assets/81eff22f-bb13-4281-9236-303eb39bf2a3)
+![Screenshot 2025-03-23 135527](https://github.com/user-attachments/assets/a8a8a5f4-23f9-42c7-9b6f-8d15505d4847)
 
-- The expected gain of the circuit is 10V/V.
-- The obtained gain from transient analysis is Av = 14.78V/V
+- The obtained gain from transient analysis is Av = 25.79V/V.
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 140507](https://github.com/user-attachments/assets/b14a05d8-7995-4303-ae47-9ea53990f8a4)
+
+- Gain Av = 29.25dB.
+- -3dB bandwidth frequency = 431.475M Hz.
+
+### For length (L) = 500nm
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 500nm. Width of M3 be 89.342um.
+
+![Screenshot 2025-03-23 141822](https://github.com/user-attachments/assets/b285bff2-07ab-45fe-b44a-b93caa309d33)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 151040](https://github.com/user-attachments/assets/ba75d1bd-94e9-459a-88fa-254bd690e0cb)
+
+- Gain Av (in dB) = 38.027dB.
+- -3dB bandwith frequency = 94.07M Hz.
+
+### For length (L) = 1um
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 1um. Width of M3 be 126.357um.
+
+![Screenshot 2025-03-23 142637](https://github.com/user-attachments/assets/0655812b-7322-43bc-8177-7cddbb6ffb9b)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 151331](https://github.com/user-attachments/assets/647bb416-558a-4869-872b-e00a0cd5b808)
+
+- Gain Av (in dB) = 39.553dB.
+- -3dB bandwith frequency = 52.6977M Hz.
+
+### Comparison Table
+
+| Length (L) | Width (W1) | Width (W2) | Width (W3) | Iref | Iout | Vout |
+|-----|----|----|----|----|----|-----|
+| 180nm | 10um | 20um | 42.833um | 0.185mA | 0.370666mA | 1.03657V |
+| 500nm | 10um | 20um | 89.342um | 0.185mA | 0.37066mA | 0.802448V |
+| 1um | 10um | 20um | 126.357um | 0.185mA | 0.3706mA | 0.493025V |
