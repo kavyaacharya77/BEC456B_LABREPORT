@@ -69,7 +69,7 @@ This makes the current mirror circuit more reliable and precise in integrated cu
 
 ### 4. CIRCUIT DESIGN AND CALCULATIONS
 ### Circuit A: 
-
+### Case 1: For mirror ratio 1:1
 ![Screenshot 2025-03-22 213539](https://github.com/user-attachments/assets/8a8def4b-4b4c-4547-9c10-34a563b384f6)
 
 #### <ins> Design Calculations </ins>
@@ -92,6 +92,8 @@ DC analysis ensures the current mirror operates in saturation, accurately copyin
    - Go to **simulate** > **Edit simulation** >> **DC op pnt** > and select **.op**
 4. Observe the key parameters like drain currents, output voltage etc. If the values doesn't match the design specifications, vary the widths of the MOSFETs(M1,M2,M3).
 
+In order to get the correct current value , W/L for M1 and M2 is 10um/180nm and W/L for M3 is 32.4256um/180nm. And we have set the bias voltage(V2) as 0.566V.
+
 ![ckt6_Aoppnt](https://github.com/user-attachments/assets/8e23114f-3a12-4fde-af9f-a1b4590fe992)
 
 5. Next select **view** > **command goto** > **SPICE error log** option to check the Vgs, Vth, Vds etc.
@@ -110,6 +112,13 @@ Transient analysis examines how the circuit responds over time by applying a tim
 
 ### INPUT AND OUTPUT WAVEFORMS
 
+![Screenshot 2025-03-23 125308](https://github.com/user-attachments/assets/2a79a44c-bee0-421c-ad96-90b0d4a859d3)
+
+![Screenshot 2025-03-23 125237](https://github.com/user-attachments/assets/81eff22f-bb13-4281-9236-303eb39bf2a3)
+
+- The expected gain of the circuit is 10V/V.
+- The obtained gain from transient analysis is Av = 14.78V/V
+
 ### 5.31 AC Analysis 
 AC analysis determines the frequency response of the current mirror, helping analyse its small-signal behaviour and gain characteristics over a range of frequencies.
 
@@ -119,4 +128,13 @@ AC analysis determines the frequency response of the current mirror, helping ana
 3.  Go to **simulate** > **Edit Simulation Cmd** > **AC Analysis**. Select decade sweep with the frequency range of 0.1Hz to 1THz.
 4.  Run the simualation and observe the Gain(Vout/Vin) vs. frequency plot, Phase shift vs.frequency and 3dB cutoff frequency (bandwidth).
 
+![ckt6_A11ACanal](https://github.com/user-attachments/assets/a12fe97b-fd38-4243-a09c-c322cef93a68)
+
+- Gain Av = 29.02dB.
+- -3dB bandwidth frequency = 652.698M Hz.
+
+| Gain | Theoretical Value | Practical Value |
+|---|----|---|
+| Av (V/V) | 10 | 14.78 |
+| Av (dB) | 20 | 29.02 |     
 
