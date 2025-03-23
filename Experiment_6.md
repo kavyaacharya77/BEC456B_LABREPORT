@@ -138,3 +138,30 @@ AC analysis determines the frequency response of the current mirror, helping ana
 | Av (V/V) | 10 | 14.78 |
 | Av (dB) | 20 | 29.02 |     
 
+### Case 1: For mirror ratio 1:2
+
+### DC Analysis 
+While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um and M2 as 20um. And Width W of MOSFET M3 is set as 42.833um. Here the current (Id) in the MOSFET M2 must be double of Iref. 
+
+1. Determine the drain current (Id)
+
+   Id = $P/Vdd$ = $1m/1.8$ = 0.556mA
+
+2. Determine the reference current (Iref) for 1:2 ratio
+
+   Iref = $Id/3$ = $0.556m/3$ = 0.185mA
+
+3.  current Id(M2) = $Iref/2$ = 0.37mA
+
+![Screenshot 2025-03-23 132946](https://github.com/user-attachments/assets/11d7dcfb-9b36-454c-a8d5-3c987692489c)
+
+### Transient Analysis
+
+### INPUT AND OUTPUT WAVEFORMS
+
+![Screenshot 2025-03-23 125308](https://github.com/user-attachments/assets/2a79a44c-bee0-421c-ad96-90b0d4a859d3)
+
+![Screenshot 2025-03-23 125237](https://github.com/user-attachments/assets/81eff22f-bb13-4281-9236-303eb39bf2a3)
+
+- The expected gain of the circuit is 10V/V.
+- The obtained gain from transient analysis is Av = 14.78V/V
