@@ -67,7 +67,7 @@ In real-world circuits, the drain current of a MOSFET is affected by **channel l
 
 This makes the current mirror circuit more reliable and precise in integrated curcuit applications.
 
-### 4. CIRCUIT DESIGN AND CALCULATIONS
+### 4.1 CIRCUIT DESIGN AND CALCULATIONS
 ### Circuit A: 
 ### Case 1: For mirror ratio 1:1
 ![Screenshot 2025-03-22 213539](https://github.com/user-attachments/assets/8a8def4b-4b4c-4547-9c10-34a563b384f6)
@@ -143,7 +143,7 @@ AC analysis determines the frequency response of the current mirror, helping ana
 Here let the length of all these MOSFETs be 500nm. Width of M3 be 67.646um.
 
 ![Screenshot 2025-03-23 144736](https://github.com/user-attachments/assets/8ad46a11-e25c-4e5e-b106-023e13dcb838)
-
+ 
 ### <ins> AC Analysis
 
 ![Screenshot 2025-03-23 150738](https://github.com/user-attachments/assets/f9ba8551-07d6-4ead-9b18-99e9518910cd)
@@ -244,6 +244,9 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 126.357um.
 ### Case 3: For mirror ratio 2:1
 ![Screenshot 2025-03-23 202746](https://github.com/user-attachments/assets/a3577ac5-cfc7-45e5-8e20-f931db99f605)
 
+### <ins> DC Analysis 
+While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 20um and M2 as 10um. And Width W of MOSFET M3 is set as 20.75um. Here the current (Id) in the MOSFET M2 must be 1/2 times the Iref. 
+
 #### <ins> Design Calculations </ins>
 1. Determine the drain current (Id)
 
@@ -252,10 +255,65 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 126.357um.
 2. Determine the reference current (Iref)
 
    Itotal = Id + 1/2Iref = 3/2Iref
+   
    Iref = $2Id/3$ = $2*0.556m/3$ = 0.3706mA
 
+![Screenshot 2025-03-23 205305](https://github.com/user-attachments/assets/97159ea4-0869-405d-adab-fb39c030b9fa)
+
+### <ins> Transient Analysis
+
+### INPUT AND OUTPUT WAVEFORMS
+
+![Screenshot 2025-03-23 205614](https://github.com/user-attachments/assets/b2f1d6b9-0f1e-4bfe-be13-8754ba75b331)
+
+- The obtained gain from transient analysis is Av = 25.641V/V.
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 210018](https://github.com/user-attachments/assets/5fdd4388-6bb4-45f7-a314-b35d7249a3cb)
+
+- Gain Av = 28.98dB.
+- -3dB bandwidth frequency = 641.98M Hz.
+
+### For length (L) = 500nm
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 500nm. Width of M3 be 44.508um.
+
+![Screenshot 2025-03-23 210549](https://github.com/user-attachments/assets/b88c866c-93a8-4991-a0ef-88c1ef599f44)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 210827](https://github.com/user-attachments/assets/98e1cca8-d319-41d9-a732-7018970085ee)
+
+- Gain Av (in dB) = 37.95dB.
+- -3dB bandwith frequency = 116.66M Hz.
+
+### For length (L) = 1um
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 1um. Width of M3 be 62.383um.
+
+![Screenshot 2025-03-23 211433](https://github.com/user-attachments/assets/5177c925-d4c6-4e85-b92d-5a9450c95733)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 211706](https://github.com/user-attachments/assets/d67012c4-e6c6-425e-9720-ee176e34cfdb)
+
+- Gain Av (in dB) = 40dB.
+- -3dB bandwith frequency = 59.17M Hz.
+
+### Comparison Table
+
+| Length (L) | Width (W1) | Width (W2) | Width (W3) | Iref | Iout | Vout |
+|-----|----|----|----|----|----|-----|
+| 180nm | 20um | 10um | 20.75um | 0.1854mA | 0.278mA | 1.0927V |
+| 500nm | 20um | 10um | 44.508um | 0.1854mA | 0.2776mA | 0.828632V |
+| 1um | 20um | 10um | 62.383um | 0.185mA | 0.278mA | 0.613212V |
+
 ### Case 4: For mirror ratio 1:3
-![Screenshot 2025-03-23 202746](https://github.com/user-attachments/assets/a3577ac5-cfc7-45e5-8e20-f931db99f605)
+![image](https://github.com/user-attachments/assets/29178065-fcab-4c85-89e0-9e86af486a31)
+
+### <ins> DC Analysis 
+While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um and M2 as 30um. And Width W of MOSFET M3 is set as 47.5885um. Here the current (Id) in the MOSFET M2 must be 3 times the Iref. 
 
 #### <ins> Design Calculations </ins>
 1. Determine the drain current (Id)
@@ -265,11 +323,78 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 126.357um.
 2. Determine the reference current (Iref)
 
    Itotal = Id + 3Iref = 4Iref
-   Iref = $Id/4$ = $0.556m/4$ = 0.139mA
    
+   Iref = $Id/4$ = $0.556m/4$ = 0.139mA
+
+![Screenshot 2025-03-23 212600](https://github.com/user-attachments/assets/cfd80bd2-6d1a-4d7e-913a-3807f556687e)
+
+### <ins> Transient Analysis
+
+### INPUT AND OUTPUT WAVEFORMS
+
+![Screenshot 2025-03-23 212847](https://github.com/user-attachments/assets/486d8c6e-e983-4ff2-bbc4-5c964f2fe423)
+
+- The obtained gain from transient analysis is Av = 16.688V/V.
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 213101](https://github.com/user-attachments/assets/91e7b3cf-64cb-44f0-b6bb-70d8210bc7ae)
+
+- Gain Av = 29.16dB.
+- -3dB bandwidth frequency = 315.02M Hz.
+
+### For length (L) = 500nm
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 500nm. Width of M3 be 99.26um.
+
+![Screenshot 2025-03-23 213419](https://github.com/user-attachments/assets/e37af6ba-0b8d-4f51-82b7-60ac6a7ab05a)
+
+### <ins> AC Analysis
+
+
+![Screenshot 2025-03-23 213704](https://github.com/user-attachments/assets/64744866-dd88-4d26-8eef-ea5dc35b8db0)
+
+- Gain Av (in dB) = 37.811dB.
+- -3dB bandwith frequency = 74.60M Hz.
+
+### For length (L) = 1um
+### <ins> DC Analysis
+Here let the length of all these MOSFETs be 1um. Width of M3 be 139.553um.
+
+![Screenshot 2025-03-23 214112](https://github.com/user-attachments/assets/f81dcb76-ee9c-4190-a8ea-a79df2f13873)
+
+### <ins> AC Analysis
+
+![Screenshot 2025-03-23 214357](https://github.com/user-attachments/assets/4ba12b76-8f19-4b7c-8303-039d51ded139)
+
+- Gain Av (in dB) = 40.157dB.
+- -3dB bandwith frequency = 39.77M Hz.
+
+### Comparison Table
+
+| Length (L) | Width (W1) | Width (W2) | Width (W3) | Iref | Iout | Vout |
+|-----|----|----|----|----|----|-----|
+| 180nm | 10um | 30um | 47.5885um | 0.139mA | 0.417mA | 1.07078V |
+| 500nm | 10um | 30um | 99.26um | 0.139mA | 0.417mA | 0.913457V |
+| 1um | 10um | 30um | 139.553um | 0.139mA | 0.4166mA | 0.694508V |
+
 ### 6. INFERENCE
 - The current mirror circuit effectively replicates the reference current with minimal deviation, ensuring consistent performance across various W/L ratios.
 - Even when the W/L ratio is scaled proportionally, the drain current (Id) remains stable, demonstrating the circuit's effectiveness.
 - A slightly increase in amplifier gain was observed, which is likely due to small variations in transistor characteristics or simulation-related factors.
 - As expected when the mirror ratio was adjusted from 1:1 to 1:2, the gain increased accordingly, confirming theoretical expectations.
 - Overall, the results align well with theoretical predictions, indicating that both the simulation and circuit design function correctly under different conditions.
+
+### 4.2 CIRCUIT DESIGN AND CALCULATIONS
+### Circuit B: 
+### Case 1: For mirror ratio 1:1
+![Screenshot 2025-03-22 213539](https://github.com/user-attachments/assets/8a8def4b-4b4c-4547-9c10-34a563b384f6)
+
+#### <ins> Design Calculations </ins>
+1. Determine the drain current (Id)
+
+   Id = $P/Vdd$ = $1m/1.8$ = 0.556mA
+
+2. Determine the reference current (Iref)
+
+   Iref = $Id/2$ = $0.556m/2$ = 0.278mA
