@@ -240,3 +240,36 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 126.357um.
 | 180nm | 10um | 20um | 42.833um | 0.185mA | 0.370666mA | 1.03657V |
 | 500nm | 10um | 20um | 89.342um | 0.185mA | 0.37066mA | 0.802448V |
 | 1um | 10um | 20um | 126.357um | 0.185mA | 0.3706mA | 0.493025V |
+
+### Case 3: For mirror ratio 2:1
+![Screenshot 2025-03-23 202746](https://github.com/user-attachments/assets/a3577ac5-cfc7-45e5-8e20-f931db99f605)
+
+#### <ins> Design Calculations </ins>
+1. Determine the drain current (Id)
+
+   Id = $P/Vdd$ = $1m/1.8$ = 0.556mA
+
+2. Determine the reference current (Iref)
+
+   Itotal = Id + 1/2Iref = 3/2Iref
+   Iref = $2Id/3$ = $2*0.556m/3$ = 0.3706mA
+
+### Case 4: For mirror ratio 1:3
+![Screenshot 2025-03-23 202746](https://github.com/user-attachments/assets/a3577ac5-cfc7-45e5-8e20-f931db99f605)
+
+#### <ins> Design Calculations </ins>
+1. Determine the drain current (Id)
+
+   Id = $P/Vdd$ = $1m/1.8$ = 0.556mA
+
+2. Determine the reference current (Iref)
+
+   Itotal = Id + 3Iref = 4Iref
+   Iref = $Id/4$ = $0.556m/4$ = 0.139mA
+   
+### 6. INFERENCE
+- The current mirror circuit effectively replicates the reference current with minimal deviation, ensuring consistent performance across various W/L ratios.
+- Even when the W/L ratio is scaled proportionally, the drain current (Id) remains stable, demonstrating the circuit's effectiveness.
+- A slightly increase in amplifier gain was observed, which is likely due to small variations in transistor characteristics or simulation-related factors.
+- As expected when the mirror ratio was adjusted from 1:1 to 1:2, the gain increased accordingly, confirming theoretical expectations.
+- Overall, the results align well with theoretical predictions, indicating that both the simulation and circuit design function correctly under different conditions.
