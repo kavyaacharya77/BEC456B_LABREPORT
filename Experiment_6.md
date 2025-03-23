@@ -68,7 +68,7 @@ In real-world circuits, the drain current of a MOSFET is affected by **channel l
 This makes the current mirror circuit more reliable and precise in integrated curcuit applications.
 
 ### 4.1 CIRCUIT DESIGN AND CALCULATIONS
-### Circuit A: 
+### <ins> Circuit A: 
 ### Case 1: For mirror ratio 1:1
 ![Screenshot 2025-03-22 213539](https://github.com/user-attachments/assets/8a8def4b-4b4c-4547-9c10-34a563b384f6)
 
@@ -131,7 +131,7 @@ AC analysis determines the frequency response of the current mirror, helping ana
 ![ckt6_A11ACanal](https://github.com/user-attachments/assets/a12fe97b-fd38-4243-a09c-c322cef93a68)
 
 - Gain Av = 29.02dB.
-- -3dB bandwidth frequency = 652.698M Hz.
+- -3dB bandwidth frequency = 652.698MHz.
 
 | Gain | Theoretical Value | Practical Value |
 |---|----|---|
@@ -149,7 +149,7 @@ Here let the length of all these MOSFETs be 500nm. Width of M3 be 67.646um.
 ![Screenshot 2025-03-23 150738](https://github.com/user-attachments/assets/f9ba8551-07d6-4ead-9b18-99e9518910cd)
 
 - Gain Av (in dB) = 37.962dB.
-- -3dB bandwith frequency = 116.66M Hz.
+- -3dB bandwith frequency = 116.66MHz.
 
 ### For length (L) = 1um
 ### <ins> DC Analysis
@@ -162,7 +162,7 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 96.472um.
 ![Screenshot 2025-03-23 150119](https://github.com/user-attachments/assets/26a8fbe2-43ad-498f-82d3-f78c36b670c7)
 
 - Gain Av (in dB) = 37.188dB.
-- -3dB bandwith frequency = 78.40M Hz.
+- -3dB bandwith frequency = 78.40MHz.
 
 ### Comparison Table
 
@@ -205,7 +205,7 @@ While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um a
 ![Screenshot 2025-03-23 140507](https://github.com/user-attachments/assets/b14a05d8-7995-4303-ae47-9ea53990f8a4)
 
 - Gain Av = 29.25dB.
-- -3dB bandwidth frequency = 431.475M Hz.
+- -3dB bandwidth frequency = 431.475MHz.
 
 ### For length (L) = 500nm
 ### <ins> DC Analysis
@@ -218,7 +218,7 @@ Here let the length of all these MOSFETs be 500nm. Width of M3 be 89.342um.
 ![Screenshot 2025-03-23 151040](https://github.com/user-attachments/assets/ba75d1bd-94e9-459a-88fa-254bd690e0cb)
 
 - Gain Av (in dB) = 38.027dB.
-- -3dB bandwith frequency = 94.07M Hz.
+- -3dB bandwith frequency = 94.07MHz.
 
 ### For length (L) = 1um
 ### <ins> DC Analysis
@@ -231,7 +231,7 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 126.357um.
 ![Screenshot 2025-03-23 151331](https://github.com/user-attachments/assets/647bb416-558a-4869-872b-e00a0cd5b808)
 
 - Gain Av (in dB) = 39.553dB.
-- -3dB bandwith frequency = 52.6977M Hz.
+- -3dB bandwith frequency = 52.6977MHz.
 
 ### Comparison Table
 
@@ -273,7 +273,7 @@ While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 20um a
 ![Screenshot 2025-03-23 210018](https://github.com/user-attachments/assets/5fdd4388-6bb4-45f7-a314-b35d7249a3cb)
 
 - Gain Av = 28.98dB.
-- -3dB bandwidth frequency = 641.98M Hz.
+- -3dB bandwidth frequency = 641.98MHz.
 
 ### For length (L) = 500nm
 ### <ins> DC Analysis
@@ -286,7 +286,7 @@ Here let the length of all these MOSFETs be 500nm. Width of M3 be 44.508um.
 ![Screenshot 2025-03-23 210827](https://github.com/user-attachments/assets/98e1cca8-d319-41d9-a732-7018970085ee)
 
 - Gain Av (in dB) = 37.95dB.
-- -3dB bandwith frequency = 116.66M Hz.
+- -3dB bandwith frequency = 116.66MHz.
 
 ### For length (L) = 1um
 ### <ins> DC Analysis
@@ -299,7 +299,7 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 62.383um.
 ![Screenshot 2025-03-23 211706](https://github.com/user-attachments/assets/d67012c4-e6c6-425e-9720-ee176e34cfdb)
 
 - Gain Av (in dB) = 40dB.
-- -3dB bandwith frequency = 59.17M Hz.
+- -3dB bandwith frequency = 59.17MHz.
 
 ### Comparison Table
 
@@ -341,7 +341,7 @@ While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um a
 ![Screenshot 2025-03-23 213101](https://github.com/user-attachments/assets/91e7b3cf-64cb-44f0-b6bb-70d8210bc7ae)
 
 - Gain Av = 29.16dB.
-- -3dB bandwidth frequency = 315.02M Hz.
+- -3dB bandwidth frequency = 315.02MHz.
 
 ### For length (L) = 500nm
 ### <ins> DC Analysis
@@ -355,7 +355,7 @@ Here let the length of all these MOSFETs be 500nm. Width of M3 be 99.26um.
 ![Screenshot 2025-03-23 213704](https://github.com/user-attachments/assets/64744866-dd88-4d26-8eef-ea5dc35b8db0)
 
 - Gain Av (in dB) = 37.811dB.
-- -3dB bandwith frequency = 74.60M Hz.
+- -3dB bandwith frequency = 74.60MHz.
 
 ### For length (L) = 1um
 ### <ins> DC Analysis
@@ -368,7 +368,7 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 139.553um.
 ![Screenshot 2025-03-23 214357](https://github.com/user-attachments/assets/4ba12b76-8f19-4b7c-8303-039d51ded139)
 
 - Gain Av (in dB) = 40.157dB.
-- -3dB bandwith frequency = 39.77M Hz.
+- -3dB bandwith frequency = 39.77MHz.
 
 ### Comparison Table
 
@@ -378,23 +378,46 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 139.553um.
 | 500nm | 10um | 30um | 99.26um | 0.139mA | 0.417mA | 0.913457V |
 | 1um | 10um | 30um | 139.553um | 0.139mA | 0.4166mA | 0.694508V |
 
+
+### 4.2 CIRCUIT DESIGN AND CALCULATIONS
+### <ins> Circuit B: 
+### Case 1: For mirror ratio 1:1
+
+![Screenshot 2025-03-23 222127](https://github.com/user-attachments/assets/602bcd0a-0751-440c-a85f-227fa587af16)
+
+#### <ins> Design Calculations </ins>
+1. Determine the drain current (Id)
+
+   Id = $P/Vdd$ = $2.2m/2.2$ = 1mA
+
+2. Determine the reference current (Iref)
+
+   Iref = $Id/2$ = $1m/2$ = 0.5mA
+
+### <ins> DC Analysis
+Here Current (Id) in MOSFETs M1 and M2 must be equal to Iref i.e 0.5mA. And Current (Id) in MOSFETs M3 and M4 must be half of reference current (Iref) i.e 0.25mA because of differential pair configuration of MOSFETs M3 and M4.
+
+![Screenshot 2025-03-23 225601](https://github.com/user-attachments/assets/c5ff4801-c49d-4140-b7f8-9cf7392139a6)
+
+### <ins> Transient Analysis
+
+### INPUT AND OUTPUT WAVEFORMS
+
+![ckt6b](https://github.com/user-attachments/assets/56ed502a-d549-4319-9aed-21d1beebd11b)
+
+- The gain of the circuit given is 4.77V/V
+- The obtained gain from transient analysis is Av = 4.013V/V.
+
+### <ins> AC Analysis
+
+![ckt6bacanaysis](https://github.com/user-attachments/assets/ce15c0be-1c76-4f37-bd0c-a28f143e5567)
+
+- Gain Av = 12.128dB.
+- -3dB bandwidth frequency = 21.8GHz.
+
 ### 6. INFERENCE
 - The current mirror circuit effectively replicates the reference current with minimal deviation, ensuring consistent performance across various W/L ratios.
 - Even when the W/L ratio is scaled proportionally, the drain current (Id) remains stable, demonstrating the circuit's effectiveness.
 - A slightly increase in amplifier gain was observed, which is likely due to small variations in transistor characteristics or simulation-related factors.
 - As expected when the mirror ratio was adjusted from 1:1 to 1:2, the gain increased accordingly, confirming theoretical expectations.
 - Overall, the results align well with theoretical predictions, indicating that both the simulation and circuit design function correctly under different conditions.
-
-### 4.2 CIRCUIT DESIGN AND CALCULATIONS
-### Circuit B: 
-### Case 1: For mirror ratio 1:1
-![Screenshot 2025-03-22 213539](https://github.com/user-attachments/assets/8a8def4b-4b4c-4547-9c10-34a563b384f6)
-
-#### <ins> Design Calculations </ins>
-1. Determine the drain current (Id)
-
-   Id = $P/Vdd$ = $1m/1.8$ = 0.556mA
-
-2. Determine the reference current (Iref)
-
-   Iref = $Id/2$ = $0.556m/2$ = 0.278mA
