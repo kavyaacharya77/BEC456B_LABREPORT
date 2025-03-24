@@ -186,7 +186,7 @@ While keeping length of M1 and M2 MOSFET as 180nm, set the width of M1 as 10um a
 
    Iref = $Id/3$ = $0.556m/3$ = 0.185mA
 
-3.  current Id(M2) = $Iref/2$ = 0.37mA
+3.  current Id(M2) = Iref*2 = 0.37mA
 
 ![Screenshot 2025-03-23 132946](https://github.com/user-attachments/assets/11d7dcfb-9b36-454c-a8d5-3c987692489c)
 
