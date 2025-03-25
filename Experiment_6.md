@@ -381,9 +381,8 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 139.553um.
 
 ### 4.2 CIRCUIT DESIGN AND CALCULATIONS
 ### <ins> Circuit B: 
-### Case 1: For mirror ratio 1:1
 
-![Screenshot 2025-03-23 222127](https://github.com/user-attachments/assets/602bcd0a-0751-440c-a85f-227fa587af16)
+![Screenshot 2025-03-25 102103](https://github.com/user-attachments/assets/65dba563-9715-474c-9048-a0eccdbe908f)
 
 #### <ins> Design Calculations </ins>
 1. Determine the drain current (Id)
@@ -397,23 +396,22 @@ Here let the length of all these MOSFETs be 1um. Width of M3 be 139.553um.
 ### <ins> DC Analysis
 Here Current (Id) in MOSFETs M1 and M2 must be equal to Iref i.e 0.5mA. And Current (Id) in MOSFETs M3 and M4 must be half of reference current (Iref) i.e 0.25mA because of differential pair configuration of MOSFETs M3 and M4.
 
-![Screenshot 2025-03-23 225601](https://github.com/user-attachments/assets/c5ff4801-c49d-4140-b7f8-9cf7392139a6)
+![Screenshot 2025-03-25 101936](https://github.com/user-attachments/assets/1b6b9230-c9a2-4dd1-ab84-13d7bbb84ff7)
 
 ### <ins> Transient Analysis
 
 ### INPUT AND OUTPUT WAVEFORMS
 
-![ckt6b](https://github.com/user-attachments/assets/56ed502a-d549-4319-9aed-21d1beebd11b)
+![Screenshot 2025-03-25 101333](https://github.com/user-attachments/assets/7f10fc90-33f3-42ff-8150-9c02a4bfdbd1)
 
-- The gain of the circuit given is 4.77V/V
-- The obtained gain from transient analysis is Av = 4.013V/V.
+- The obtained gain from transient analysis is Av = 14.69V/V.
 
 ### <ins> AC Analysis
 
-![ckt6bacanaysis](https://github.com/user-attachments/assets/ce15c0be-1c76-4f37-bd0c-a28f143e5567)
+![Ckt6B (2)](https://github.com/user-attachments/assets/261108e4-55d1-4d7c-b37e-0e9e07f74d8a)
 
-- Gain Av = 12.128dB.
-- -3dB bandwidth frequency = 21.8GHz.
+- Gain Av = 29.18dB.
+- -3dB bandwidth frequency = 651.998MHz.
 
 ### 6. INFERENCE
 - The current mirror circuit effectively replicates the reference current with minimal deviation, ensuring consistent performance across various W/L ratios.
