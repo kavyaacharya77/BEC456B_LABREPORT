@@ -46,7 +46,7 @@ Assuming:
 
 Then:
 
-*R = T/1.1 x C = 454.54 Ω
+*R = T/1.1 x C = 454.54 Ω*
 
 Selected values:
 - R = 454.54 Ω
