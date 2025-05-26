@@ -1,4 +1,4 @@
-# 555 Timer Monostable Multivibrator
+# Monostable Multivibrator Using 555 Timer IC
 ### 1. AIM
 Generate a waveform with pulse width of 0.5 ms under different trigger conditions using 555 timer IC.
 
@@ -16,12 +16,6 @@ The output pulse duration (T) is given by the formula:
 Where:
 - R = Resistance in ohms
 - C = Capacitance in farads
-
-
-
-
-
-This setup ensures that the monostable receives consistent, clean fallig edges as trigger inputs.
 
 ### <ins>Key Features
 - Accurate pulse generation (0.5ms) on each trigger.
@@ -64,19 +58,21 @@ Used to verify timing behaviour of the output signal in response to various trig
 3. Simulation Command
    - Go to **Simulate** -> *Edit Simulation Cmd*
    - Choose **Transient**, and set thime as needed per case.
-  
+
+### 5. OUTPUT WAVEFORMS AND RESULTS
 ### <ins>Case 1: Properly Spaced Triggers
 - Trigger Pulse Source:
   VTrig PULSE(5 0 0.05m 0 0 0.01m 2m)
   - This generates a falling edge every 2 ms (well spaced).
 
 - Run the simulation for 10 ms.
-- **Expected Output**:
+- **Output Result**:
   - Each falling edge triggers the 555.
   - Output (VOUT) goes HIGH for approx. 0.5 ms on each trigger.
   - Multiple output pulses will be seen.
 
 ![image](https://github.com/user-attachments/assets/aa0898bb-c1df-4b4f-8704-0ff9bd493922)
+First waveform is the output of trigger input, Second is the output of capacitor voltage and third waveform is the output of monostable multivibrator with pulse width of 0.5 ms. 
 
 ### <ins>Case 2: Rapid Repeated Triggers
 - Trigger Pulse Source:
@@ -84,22 +80,23 @@ Used to verify timing behaviour of the output signal in response to various trig
   - This generates a falling edge every 0.2 ms (faster than output duration).
 
 - Run the simulation for 2 ms.
-- **Expected Output**:
+- **Output Result**:
   - First falling edge triggers the 555.
   - Output (VOUT) goes HIGH for 0.5 ms.
   - All triggers during this HIGH time are ignored.
 
 ![image](https://github.com/user-attachments/assets/655dfb41-dfd8-4a42-9358-80fecba61d1f)
+First waveform is the output of trigger input, Second is the output of capacitor voltage and third waveform is the output of monostable multivibrator with pulse width of 0.5 ms. 
 
-### 5. INFERENCE
+### 6. INFERENCE
 - The 555 timer in monostable mode correctly generates a 0.5ms output pulse when triggered.
 - It does not respond to retriggering until the current pulse is complete, confirming non-retriggerable behaviour.
 - Using an astable source and edge-filtering logic provides reliable triggering.
 
-### 6. CONCLUSION
+### 7. CONCLUSION
 The NE555 timer configured in monostable mode provides accurate, predictable timing pulses when triggered by clean falling edges. In this simulation, a 0.5 ms output pulse was reliably generated using selected resistor-capacitor values, and its response under different trigger scenarios was analysed. The circuit performs well in digital timimg applications and can be extended using external logic for automated triggering.
 
-# 555 Timer IC Astable Multivibrator
+# Astable Multivibrator And Monostable Multivibrator Using 555 Timer ICs
 ### 1. AIM
 Generate a waveform with pulse width of 0.5 ms under different trigger conditions using 555 timer IC.
 
@@ -147,9 +144,117 @@ This cycle of charging and discharging creates a continuous square wave.
 | **Reliable and Cost-Effective** | Easy to implement with stable operation over a wide voltage range.    |
 
 ### 4. CIRCUIT DESIGN AND CALCULATION
+### <ins> Calculations
+### Astable Multivibrator
+*ton = 0.69 (R1 + R2)C2*,   *toff = 0.69 x R1 x C2*
+
+#### <ins>Case 1:
+Consider ton = 0.3 ms, toff = 0.2 ms and C2 = 0.01 µF
+
+*R2 = 0.2 x 10^-3/0.69 x 0.01µ = 28.985k Ω*
+
+*R1 = (0.3 x 10^-3/0.69 x 0.01µ) - 28.985k = 14.493k Ω*
+
+#### <ins>Case 2:
+Consider ton = 0.7 ms, toff = 0.3 ms and C2 = 0.01 µF
+
+*R2 = 0.3 x 10^-3/0.69 x 0.01µ = 43.478k Ω*
+
+*R1 = (0.7 x 10^-3/0.69 x 0.01µ) - 43.478k = 57.971k Ω*
+
+#### <ins>Case 3:
+Consider ton = 0.1 ms, toff = 0.4 ms and C2 = 0.01 µF
+This is not possible as ton must be greater than toff in astable multivibrator. Thus consider ton = 0.4 ms and toff = 0.1 ms and invert the output
+
+*R2 = 0.1 x 10^-3/0.69 x 0.01µ = 14.492k Ω*
+
+*R1 = (0.4 x 10^-3/0.69 x 0.01µ) - 14.492k = 43.479k Ω*
+
+### Differentiator Circuit
+Let C4 = 0.1 µF, fa = 1k Hz and fb = 10k Hz
+
+*fa = 1/2 x pi x R4 x C4*
+
+*R4 = 1/2 x pi x 0.1µ x 10^3 = 1.59k Ω*
+
+*fb = 1/2 x pi x R3 x C4*
+
+*R3 = 1/2 x pi x 0.1µ x 10 x 10^3 = 159 Ω*
+
+### Monostable Multivibrator
+*T = 1.1 x R X C*
+
+For pulse width,T= 0.5 ms and C = 1 µF
+
+*R = 0.5/1.1 x 10^-6 = 454.54 Ω*
+
+### <ins>Circuit Diagram
+![image](https://github.com/user-attachments/assets/a9a873cf-9096-413b-804a-2c07477ed9f8)
+
 ### 5. SIMULATION ANALYSIS
-### 6. INFERENCE
-### 7. CONCLUSION
+### <ins>Transient Analysis
+Used to verify timing behaviour of the output signal in response to various trigger signals.
+
+### <ins>Procedure 
+1. Open LTspice and create a new schematic.Set up the circuit as per the circuit diagram.
+2. Calculate the Resistor and Capacitor values for Astable block, Differentiator, clipper and Monostable block.
+3. Analyse the charging and discharging of the capacitor per time.
+4. Simulation Command
+   - Go to **Simulate** -> *Edit Simulation Cmd*
+   - Choose **Transient**, and set thime as needed per case.
+
+### 6. OUTPUT WAVEFORMS AND RESULTS
+### <ins>Case 1: 
+For ton = 0.3 ms and toff = 0.2 ms, Period = 0.5 ms
+### <ins>Output Waveforms
+
+![image](https://github.com/user-attachments/assets/b1d4752c-79a3-4f35-a94f-91993c222bf2)
+First waveform is the output of astable multivibrator, second waveform is the of differentiator circuit, third is the output of positive clipper circuit and lastly fourth waveform is the output of monostable multivibrator with pulse width of 0.5 ms.
+
+**Output Result**:
+  - Continuous pulse train, each 0.5 ms wide, spaced 0.5ms apart.
+  - Continuous triggering causes pulses to touch or slightly overlap.
+
+### <ins>Case 2: 
+For ton = 0.7 ms and toff = 0.3 ms, Period = 1.0 ms
+### <ins>Output Waveforms
+
+![image](https://github.com/user-attachments/assets/7c47ea2d-1a10-4e8d-b2a0-c95b9db8e722)
+
+First waveform is the output of astable multivibrator, second waveform is the of differentiator circuit, third is the output of positive clipper circuit and lastly fourth waveform is the output of monostable multivibrator with pulse width of 0.5 ms.
+
+**Output Result**:
+  - Pulse of 0.5 ms at every 1 ms.
+  - The output is clean, periodic pulse:
+    - **High** for 0.5 ms, then **LOW** for 0.5 ms.
+  - Output duty cycle = 50%.
+
+### <ins>Case 3: 
+For ton = 0.4 ms and toff = 0.1 ms, Period = 0.5 ms. Then by using a transistor inverter, the final waveform that triggers the monostable will have 
+- ton = 0.1 ms
+- toff = 0.4 ms
+This allows:
+- Clear separation between trigger pulses.
+- Enough time for the monostable to reset before the next pulse.
+### <ins>Output Waveforms
+
+
+First waveform is the output of astable multivibrator, second waveform is the of differentiator circuit, third is the output of positive clipper circuit and lastly fourth waveform is the output of monostable multivibrator with pulse width of 0.5 ms.
+
+**Output Result**:
+  - Monostable is triggered at every 0.5 ms.
+  - Monostable pulse width = 0.5 ms.
+  - This results in continuous high output, as each new trigger occurs before previous monostable pulse finishes.
+    
+### 7. INFERENCE
+- The Astable Multivibrator using a 555 timer successfully generated periodic square wave signals without requiring any external triggering.
+- The **Differentiator** and **Clipper circuits** were effective in converting sqaure wave edges into narrow negative spikes, suitable for triggering monostable timer.
+- The **Monostable Multivibrator** responds accurately to each valid trigger, producing consistent 0.5 ms output pulses/
+- Simulation across multiple timing cases (Cases 1,2 and 3) confirms that the pulse width remains fixed at 0.5 ms, regardless of the input frequency or duty cycle.
+- In **Case 3**, continuous triggering before previous pulse ends causes the monostable output to stay HIGH, demonstrating how the trigger frequency can affect pulse overlap.
+
+### 8. CONCLUSION
+The experiment demonstrates that a 555 timer can be configured in both Astable and Monostable modes to generate and shape precise timing pulse. The combination of logic elements-differentiator, clipper and inverter-ensures clean and reliable triggering of the monostable multivibrator. The system is robust, versatile and suitable for a wide range of timing applications, including waveform generation, delay circuits and digital pulse shaping.
 
 # Virtual Lab Simulation of Monostable Multivibrator
 ### 1. AIM
