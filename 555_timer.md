@@ -66,13 +66,14 @@ Used to verify timing behaviour of the output signal in response to various trig
   - This generates a falling edge every 2 ms (well spaced).
 
 - Run the simulation for 10 ms.
-- **Output Result**:
-  - Each falling edge triggers the 555.
-  - Output (VOUT) goes HIGH for approx. 0.5 ms on each trigger.
-  - Multiple output pulses will be seen.
 
 ![image](https://github.com/user-attachments/assets/aa0898bb-c1df-4b4f-8704-0ff9bd493922)
 First waveform is the output of trigger input, Second is the output of capacitor voltage and third waveform is the output of monostable multivibrator with pulse width of 0.5 ms. 
+
+**Output Result**:
+  - Each falling edge triggers the 555.
+  - Output (VOUT) goes HIGH for approx. 0.5 ms on each trigger.
+  - Multiple output pulses will be seen.
 
 ### <ins>Case 2: Rapid Repeated Triggers
 - Trigger Pulse Source:
@@ -80,18 +81,21 @@ First waveform is the output of trigger input, Second is the output of capacitor
   - This generates a falling edge every 0.2 ms (faster than output duration).
 
 - Run the simulation for 2 ms.
-- **Output Result**:
-  - First falling edge triggers the 555.
-  - Output (VOUT) goes HIGH for 0.5 ms.
-  - All triggers during this HIGH time are ignored.
 
 ![image](https://github.com/user-attachments/assets/655dfb41-dfd8-4a42-9358-80fecba61d1f)
 First waveform is the output of trigger input, Second is the output of capacitor voltage and third waveform is the output of monostable multivibrator with pulse width of 0.5 ms. 
 
+**Output Result**:
+  - First falling edge triggers the 555.
+  - Output (VOUT) goes HIGH for 0.5 ms.
+  - All triggers during this HIGH time are ignored.
+
 ### 6. INFERENCE
-- The 555 timer in monostable mode correctly generates a 0.5ms output pulse when triggered.
-- It does not respond to retriggering until the current pulse is complete, confirming non-retriggerable behaviour.
-- Using an astable source and edge-filtering logic provides reliable triggering.
+- The 555 timer in monostable multivibrator mode successfully generates a precise 0.5 ms oulse in response to each valid falling-edge trigger.
+- In **Case 1**, where the trigger pulse are well-spaced (every 2 ms), the circuit generates clean, distinct output pulses with accurate timing.
+- In **Case 2**, where triggers occur faster than the pukse duration (every 0.2 ms), the timer ignores subsequent triggers during the HIGH output phase, demonstrating its **non-retriggerable** behaviour.
+- The capacitor voltage waveform confirms correct charge and discharge behaviour during each phase cycle.
+- Simulation results validate the theoretical design and show the circuit's reliabilityunder both slow and rapid triggering conditions.
 
 ### 7. CONCLUSION
 The NE555 timer configured in monostable mode provides accurate, predictable timing pulses when triggered by clean falling edges. In this simulation, a 0.5 ms output pulse was reliably generated using selected resistor-capacitor values, and its response under different trigger scenarios was analysed. The circuit performs well in digital timimg applications and can be extended using external logic for automated triggering.
@@ -236,10 +240,16 @@ For ton = 0.4 ms and toff = 0.1 ms, Period = 0.5 ms. Then by using a transistor 
 This allows:
 - Clear separation between trigger pulses.
 - Enough time for the monostable to reset before the next pulse.
+
+#### Transistor inverter circuit:
+
+![image](https://github.com/user-attachments/assets/68467e1b-11da-4ff2-aa3f-8cb30a68d3c1)
+
 ### <ins>Output Waveforms
 
+![image](https://github.com/user-attachments/assets/20bf1383-c7e0-41ae-8bf5-d7a9151dcd26)
 
-First waveform is the output of astable multivibrator, second waveform is the of differentiator circuit, third is the output of positive clipper circuit and lastly fourth waveform is the output of monostable multivibrator with pulse width of 0.5 ms.
+First waveform is the output of inverter circuit, second waveform is the of differentiator circuit, third is the output of positive clipper circuit and lastly fourth waveform is the output of monostable multivibrator with pulse width of 0.5 ms.
 
 **Output Result**:
   - Monostable is triggered at every 0.5 ms.
